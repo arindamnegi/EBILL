@@ -46,50 +46,42 @@ body
 <div>
 
 <ul>
-  <li><a class="active" href="ebill.html">Home</a></li>
-  <li><a href="RegisterP.html">Register</a></li>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="About us.html">About Us</a></li>
   <li><a href="billcal.html">Calculate Bill</a></li>
-  <li><a href="#about">About</a></li>
+  
 </ul>
 <br><hr>
-<form method="post" action="#">
-  BillNO.:<br>
-  <input type="text" name="BillNo" value="">
-  <br>
+<form>
+    <label for="consumption">Enter your electricity consumption in kWh:</label>
+    <input type="number" id="consumption" name="consumption">
 
+    <label for="price">Enter the price per kWh:</label>
+    <input type="number" id="price" name="price">
 
+    <button type="button" onclick="calculateBill()">Calculate</button>
+  </form>
 
-
-<h1>Calculate your BILL</h1>
-
-<p1>Enter units consumed:</p1>
-<input type='text'  name="NU" id="txt2"/><br><br>
-
-
-
-<button type="submit" name="Submit" onclick="myEmi()" >Calculate Bill</button><br><br>
-<input type="submit" name="showdetails" value="showdetails"><br><br>
-
-</form>
-<p1>Calculate Bill :</p1>
-<p1 id="demo1"></p1><br><br>
+  <p>Your electricity bill is: <span id="result"></span></p>
 
 <script>
-function myEmi() {
-var p,r,n,m,a,b,c,d,e;
-n=parseFloat(document.getElementById("txt2").value);
+    function calculateBill() {
+      // Get the consumption and price input values
+      const consumption = document.getElementById('consumption').value;
+      const price = document.getElementById('price').value;
 
+      // Calculate the bill by multiplying the consumption by the price
+      const bill = consumption * price;
 
-m=3*n;
-document.getElementById("demo1").innerHTML = m;
-}
-</script>
-
+      // Show the result in the "result" element
+      document.getElementById('result').innerHTML = bill;
+    }
+  </script>
 
 <hr>
 
 
-  Already have an account click here to<a href="OPEB.html"> Sign In</a>
+  Already have an account click here to<a href="index.html"> Sign In</a>
 </div>
 </body>
 </html>
